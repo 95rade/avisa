@@ -1,0 +1,25 @@
+resources:
+- name: ubuntu
+  type: docker-image
+  source:
+    repository: ubuntu
+
+- name: python-image
+  type: docker-image
+  source:
+    repository: mydocker/python
+
+- name: python-concourse-repo
+  type: git
+  source:
+    uri: ...
+
+jobs:
+- name: build-image-from-base
+  plan:
+  - get: repo
+  - get: ubuntu
+  - put: python-image
+    params:
+      load_base: ubuntu
+      dockerfile: repo/ci/Dockerfile
