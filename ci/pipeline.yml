@@ -17,7 +17,7 @@ resources:
 jobs:
 - name: build-image-from-base
   plan:
-  - get: repo
+  - get: python-concourse-repo
   - get: ubuntu
   - put: python-image
     params:
