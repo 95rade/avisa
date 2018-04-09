@@ -1,0 +1,38 @@
+---
+resources:
+- name: avisa-repo
+  type: git
+  source:
+    #uri: https://github.com/concourse/flight-school.git
+    #uri: https://github.com/95rade/flight-school.git
+    uri: https://github.com/95rade/avisa.git
+    branch: master
+
+jobs:
+- name: run-avisa
+  plan:
+  - get: avisa-repo
+  - task: run-tests
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          #repository: ubuntu
+          repository: python
+      inputs:
+      - name: avisa-repo
+      #- name: sample-python-flask-app-boshrelease
+      run:
+        path: /bin/bash
+        args:
+        - -c
+        - |
+          uname -a
+          pwd
+          ls -ltr
+          cd avisa-repo
+          ls -ltr
+          chmod +x avisa-demo.py
+          which python
+          python avisa-demo.py
