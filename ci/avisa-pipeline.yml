@@ -35,4 +35,4 @@ jobs:
           ls -ltr
           chmod +x avisa-demo.py
           which python
-          python avisa-demo.py
+          python avisa-demo.py -g SIT-TVE -a 'http://10.22.244.94/TBS_HD_TVE.m3u8' -d 60 -t 'JS'
