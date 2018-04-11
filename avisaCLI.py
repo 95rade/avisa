@@ -296,7 +296,7 @@ class AvisaController(object):
         tst_payload = self.generate_tests(asset, test_duration)
         http_response = self.http_client.post("api/tests/", data=tst_payload)
         if http_response["response_code"] == 200:
-            print "appending results"
+            print ("appending results")
             for test in http_response["response"]["tests"]:
                 test_list.append({"test_id": test["test_id"], "device_id": test["device_id"],
                                   "deployment_id": test["deployment_id"]})
