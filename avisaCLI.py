@@ -252,7 +252,7 @@ class AvisaController(object):
     def generate_tests(self, asset_url, test_duration):
         self.test_payload["deployment_id"] = str(self.reservation_id)
         # Add test for each device type
-        print len(self.reservation)
+        print (len(self.reservation))
         for device in self.reservation:
             device_id = device["device_id"]
             # Get Device Platform  OS name
