@@ -53,7 +53,7 @@ def exceptions_handler(fun):
             ex_type, exception_info, trace_back = sys.exc_info()
             template = "'{0} ' occurred. \n{1!r}"
             message = template.format(ex_type, exception_var.args)
-            print message
+            print (message)
         return fun(*args, **kwargs)
 
     return exceptions_wrapper
